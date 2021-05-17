@@ -17,6 +17,8 @@ function setup() {
   createDiv("master frame rate");
 
   rateSlider = createSlider(10, 1000, 200);
+  rateSlider.addClass('slider')
+  rateSlider.style('width: 100px')
   createSpan("cycle length:");
   cycleInput = createInput();
   cycleInput.style("width: 20px");
@@ -26,7 +28,7 @@ function setup() {
 
   button = createButton("new");
   button.mousePressed(buildModule);
-  button.style("float:right; margin-right: 20px");
+  button.style("float:right");
   sel = createSelect();
   sel.option("noise");
   sel.option("oscillator");
@@ -129,6 +131,7 @@ class Synth {
 
     createDiv("volume:");
     this.ampInput = createSlider(0.01, 1, 1, 0.01);
+    this.ampInput.addClass('slider')
     this.ampInput.changed(this.setAmp);
 
     this.env = new p5.Envelope();
@@ -144,10 +147,12 @@ class Synth {
     };
     createDiv("attackTime:");
     this.attackTime = createSlider(0, 1, 0, 0.01);
+    this.attackTime.addClass('slider')
     this.attackTime.changed(this.filter);
     this.decayTime = 0.5;
     createDiv("decayTime:");
     this.decayTime = createSlider(0, 1, 0.1, 0.01);
+    this.decayTime.addClass('slider')
     this.decayTime.changed(this.filter);
     this.susRatio = 0;
 
@@ -155,6 +160,7 @@ class Synth {
     this.prob = createDiv("probability:");
 
     this.probSlider = createSlider(0, 100, 50);
+    this.probSlider.addClass('slider')
 
     createSpan("pattern:");
 
@@ -213,6 +219,7 @@ class Noise {
 
     createDiv("volume:");
     this.ampInput = createSlider(0.01, 1, 1, 0.01);
+    this.ampInput.addClass('slider')
     this.ampInput.changed(this.setAmp);
 
     this.env = new p5.Envelope();
@@ -231,15 +238,18 @@ class Noise {
     };
     createDiv("attackTime:");
     this.attackTime = createSlider(0, 1, 0, 0.01);
+    this.attackTime.addClass('slider')
     this.attackTime.changed(this.filter);
     this.decayTime = 0.5;
     createDiv("decayTime:");
     this.decayTime = createSlider(0, 1, 0.1, 0.01);
+    this.decayTime.addClass('slider')
     this.decayTime.changed(this.filter);
     this.susRatio = 0;
 
     createDiv("probability:");
     this.probSlider = createSlider(0, 100, 50);
+    this.probSlider.addClass('slider')
 
     createSpan("pattern:");
     this.setSkips = () => {
