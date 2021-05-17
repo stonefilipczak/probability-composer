@@ -5,3 +5,7 @@ html, body {
 canvas {
   display: block;
 }
+
+.slider {
+  margin-left: 20px;
+}
